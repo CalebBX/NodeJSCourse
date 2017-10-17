@@ -2,6 +2,8 @@ const express = require('express');
 
 var app = express();
 
+app.use(express.static(__dirname + '/public'));
+
 app.get('/', function(req, res){
     res.send({
         name: 'Caleb',
@@ -18,4 +20,6 @@ app.get('/bad', function(req, res){
        errorMessage: 'Unable to handle request.'
    }); 
 });
-app.listen(3000);
+app.listen(3000, function(){
+    console.log('Server is up on port 3000');
+});
